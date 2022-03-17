@@ -1,3 +1,9 @@
+📚 ___Table of Contents___
+
+- [Working with Spring Data Repositories](https://github.com/BAEKJungHo/spring-data#working-with-spring-data-repositories)
+- [Spring Data JPA](https://github.com/BAEKJungHo/spring-data#spring-data-jpa)
+- [Spring Data JDBC](https://github.com/BAEKJungHo/spring-data#spring-data-jdbc)
+
 # Working with Spring Data Repositories
 
 > https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#repositories
