@@ -19,7 +19,7 @@
     @Indexed
     public interface Repository<T, ID> {}
     ```
-- __Spring Data JPA Repository Architectures_
+- _Spring Data JPA Repository Architectures_
   - `J`paRepository (interface)
     - `P`agingAndSortingRepository (interface)
       - `C`rudRepository (interface)
