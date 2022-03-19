@@ -89,4 +89,21 @@
 
 ## JDBC Repositories
 
+Spring Data JDBC 또한 `Spring Data Repositories` 의 Core Concepts 를 기반으로 한다.
 
+## Why Spring Data JDBC?
+
+- JPA 의 경우에 개발자를 도와주기 위한 Lazy Loading 같은 많은 것들을 제공한다. 
+- 하지만 JPA 에서는 개념적으로 정말 간단한 것이 오히려 어려워 지기도 한다.
+
+Spring Data JDBC 의 목표는 다음과 같다.
+
+- If you load an entity, SQL statements get run. Once this is done, you have a completely loaded entity. No lazy loading or caching is done.
+- If you save an entity, it gets saved. If you do not, it does not. There is no dirty tracking and no session.
+- There is a simple model of how to map entities to tables. It probably only works for rather simple cases. If you do not like that, you should code your own strategy. Spring Data JDBC offers only very limited support for customizing the strategy with annotations.
+
+## Domain Driven Design and Relational Databases
+
+- 모든 `Spring Data` 와 관련된 모듈들은 DDD 의 `repository`, `aggregate` 및 `aggregate root` 개념에서 영감을 받았다. 
+- Repository 는 특정 유형의 Aggregate 의 컬렉션 처럼 보이는 영속성 저장소를 추상화 한 것이다.
+- 일반적으로 Spring Data 의 경우, Repository 는 Root Aggregate 에 해당한다.
