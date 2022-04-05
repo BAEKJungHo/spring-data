@@ -111,3 +111,4 @@ Spring Data JDBC 의 목표는 다음과 같다.
 ## References
 
 - https://velog.io/@janeljs/Spring-Data-JDBC-1
+- https://javabom.tistory.com/57
