@@ -108,6 +108,35 @@ Spring Data JDBC 의 목표는 다음과 같다.
 - Repository 는 특정 유형의 Aggregate 의 컬렉션 처럼 보이는 영속성 저장소를 추상화 한 것이다.
 - 일반적으로 Spring Data 의 경우, Repository 는 Root Aggregate 에 해당한다.
 
+## Auditing
+
+- __package__
+  - org.springframework.data.auditing;
+- __class__
+  - AnnotationAuditingMetadata
+
+내부적으로 Reflection 을 사용한다.
+
+```java
+/**
+ * Creates a new {@link AnnotationAuditingMetadata} instance for the given type.
+ *
+ * @param type must not be {@literal null}.
+ */
+private AnnotationAuditingMetadata(Class<?> type) {
+
+  Assert.notNull(type, "Given type must not be null!");
+
+  this.createdByField = Optional.ofNullable(ReflectionUtils.findField(type, CREATED_BY_FILTER));
+  this.createdDateField = Optional.ofNullable(ReflectionUtils.findField(type, CREATED_DATE_FILTER));
+  this.lastModifiedByField = Optional.ofNullable(ReflectionUtils.findField(type, LAST_MODIFIED_BY_FILTER));
+  this.lastModifiedDateField = Optional.ofNullable(ReflectionUtils.findField(type, LAST_MODIFIED_DATE_FILTER));
+
+  assertValidDateFieldType(createdDateField);
+  assertValidDateFieldType(lastModifiedDateField);
+}
+```
+
 ## References
 
 - https://velog.io/@janeljs/Spring-Data-JDBC-1
