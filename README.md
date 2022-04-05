@@ -137,6 +137,14 @@ private AnnotationAuditingMetadata(Class<?> type) {
 }
 ```
 
+코틀린을 사용할 때, Super class 를 만들어서 시스템 변수들을 몰아두고, 하위 클래스에서 상속해서 사용하는 경우(이때, Super class 의 생성자가 아닌 필드방식으로 선언되어있고 getter, setter 제공)
+혹은 자식 클래스에서 상속을 사용하지 않고 생성자의 파라미터로 사용하는 경우 둘 다, Auditing 기능이 작동한다.
+
+따라서, 아마 2가지 방식으로 리플렉션이 일어나지 않을까 생각한다.
+
+- 생성자를 통해서 객체를 만든 다음 바인딩
+- setter 를 활용하여 리플렉션 사용
+
 ## References
 
 - https://velog.io/@janeljs/Spring-Data-JDBC-1
