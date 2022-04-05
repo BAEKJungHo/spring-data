@@ -107,3 +107,7 @@ Spring Data JDBC 의 목표는 다음과 같다.
 - 모든 `Spring Data` 와 관련된 모듈들은 DDD 의 `repository`, `aggregate` 및 `aggregate root` 개념에서 영감을 받았다. 
 - Repository 는 특정 유형의 Aggregate 의 컬렉션 처럼 보이는 영속성 저장소를 추상화 한 것이다.
 - 일반적으로 Spring Data 의 경우, Repository 는 Root Aggregate 에 해당한다.
+
+## References
+
+- https://velog.io/@janeljs/Spring-Data-JDBC-1
