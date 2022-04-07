@@ -149,3 +149,4 @@ private AnnotationAuditingMetadata(Class<?> type) {
 
 - https://velog.io/@janeljs/Spring-Data-JDBC-1
 - https://javabom.tistory.com/57
+- [Spring Data Pagination](https://wonit.tistory.com/483)
