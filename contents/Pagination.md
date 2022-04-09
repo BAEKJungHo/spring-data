@@ -1,7 +1,7 @@
 # Pagination in Spring Data
 
 - __페이지네이션 처리 방법은 크게 두 가지__
-  - 데이터베이스에 접근하여 페이징 쿼리를 사용하는 경우
+  - 데이터베이스에 접근하여 쿼리를 사용하는 경우
   - List 자료구조에 담긴 데이터를 Page 객체로 변환 하는 경우
 - __클라이언트에 응답해야할 목록__
   - 컨텐츠의 전체 개수(Ex. totalCount)
@@ -14,17 +14,19 @@
 
 ## Using Query
 
-> 데이터베이스에 접근하여 페이징 쿼리를 사용하는 경우
+> 데이터베이스에 접근하여 쿼리를 사용하는 경우
 
 ```kotlin
 @GetMapping("/resources")
 fun showResources(
     @PageableDefault pageable: Pageable
 ): ResponseEntity<PageResponse<ResourceDto>> {
-    val body = service.findAllResource(pageable).let(::PageResponse)
+    val body = service.findAllResourceWithPage(pageable).let(::PageResponse)
     return ResponseEntity.ok(body)
 }
 ```
+
+> 데이터베이스에 접근하여 쿼리를 사용 하여 서비스가 Page 객체를 반환하는 경우에는 메서드명의 Suffix 에 WithPage 같은 것을 붙여주는 것이 좋다고 생각한다. 페이지네이션은 Presentation Layer 에 밀접한 로직이라고 생각한다. 
 
 ## List to Page 
 
@@ -85,3 +87,4 @@ data class PageFactory<T>(
 - [Spring Data JDBC Pagination](https://javabydeveloper.com/spring-data-jdbc-pagination-and-sorting-example/)
 - https://tecoble.techcourse.co.kr/post/2021-08-15-pageable/
 - [List to Page](https://stackoverflow.com/questions/37749559/conversion-of-list-to-page-in-spring)
+- https://www.bezkoder.com/spring-boot-pagination-filter-jpa-pageable/
